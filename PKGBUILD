@@ -28,8 +28,9 @@ source=(
   "libpng::git+https://github.com/glennrp/libpng.git"
   "zlib::git+https://github.com/madler/zlib.git"
   "freetype2::git+https://github.com/wez/freetype2.git"
+  "optional-resolve-new-geometry-bounds-from-screens.patch"
 )
-sha256sums=("SKIP" "SKIP" "SKIP" "SKIP" "SKIP")
+sha256sums=("SKIP" "SKIP" "SKIP" "SKIP" "SKIP" "SKIP")
 
 prepare() {
   cd "$srcdir/wezterm"
@@ -40,6 +41,7 @@ prepare() {
   git config "submodule.freetype2.url" "$srcdir/freetype2"
   git -c protocol.file.allow=always submodule update
   cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
+  patch --forward --strip=1 --input="../optional-resolve-new-geometry-bounds-from-screens.patch"
 }
 
 pkgver() {
