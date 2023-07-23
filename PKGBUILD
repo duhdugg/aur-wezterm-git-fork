@@ -3,7 +3,7 @@
 
 pkgname=("wezterm-git")
 pkgdesc="A terminal emulator implemented in Rust, using OpenGL ES 2 for rendering."
-pkgver=20230408.112425.69ae8472
+pkgver=20230712.072601.f4abf8fd
 pkgrel=1
 arch=("x86_64" "i686")
 url="https://github.com/wez/wezterm"
@@ -34,7 +34,7 @@ sha256sums=("SKIP" "SKIP" "SKIP" "SKIP" "SKIP" "SKIP")
 
 prepare() {
   cd "$srcdir/wezterm"
-  git checkout 20230408-112425-69ae8472
+  git checkout 20230712-072601-f4abf8fd
   git submodule init
   git config "submodule.harfbuzz/harfbuzz.url" "$srcdir/harfbuzz"
   git config "submodule.freetype/libpng.url" "$srcdir/libpng"
